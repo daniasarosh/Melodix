@@ -15,7 +15,17 @@
         </a>
 
         <nav class="nav">
-            <a href="/admin" class="active">Dashboard</a>
+            <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a>
+
+<div class="nav-title">Manage</div>
+<a href="{{ route('admin.artists.index') }}" class="{{ request()->routeIs('admin.artists.*') ? 'active' : '' }}">Artists</a>
+<a href="{{ route('admin.albums.index') }}" class="{{ request()->routeIs('admin.albums.*')? 'active' : '' }}">Albums</a>
+
+ <a href="{{ route('admin.genres.index') }}" class="{{ request()->routeIs('admin.genres.*')? 'active' : '' }}">Genres</a>
+ <a href="{{ route('admin.languages.index') }}" class="{{ request()->routeIs('admin.languages.*')? 'active' : '' }}">languages</a>
+ <a href="{{ route('admin.countries.index') }}" class="{{ request()->routeIs('admin.countries.*')? 'active' : '' }}">Countries</a>
+
+
 
             <div class="nav-title">Account</div>
             <a href="/">View Website</a>
@@ -30,6 +40,10 @@
     <main class="main">
         @if (session('success'))
             <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+
+         @if (session('error'))
+            <div class="alert alert-error">{{ session('error') }}</div>
         @endif
 
         @yield('content')
