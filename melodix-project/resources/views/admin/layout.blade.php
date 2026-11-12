@@ -20,13 +20,14 @@
 <div class="nav-title">Manage</div>
 <a href="{{ route('admin.artists.index') }}" class="{{ request()->routeIs('admin.artists.*') ? 'active' : '' }}">Artists</a>
 <a href="{{ route('admin.albums.index') }}" class="{{ request()->routeIs('admin.albums.*')? 'active' : '' }}">Albums</a>
+<a href="{{ route('admin.songs.index') }}" class="{{ request()->routeIs('admin.songs.*')? 'active' : '' }}">Songs</a>
 
  <a href="{{ route('admin.genres.index') }}" class="{{ request()->routeIs('admin.genres.*')? 'active' : '' }}">Genres</a>
  <a href="{{ route('admin.languages.index') }}" class="{{ request()->routeIs('admin.languages.*')? 'active' : '' }}">languages</a>
  <a href="{{ route('admin.countries.index') }}" class="{{ request()->routeIs('admin.countries.*')? 'active' : '' }}">Countries</a>
-
-
-
+ <a href="{{ route('admin.videos.index') }}" class="{{ request()->routeIs('admin.videos.*')? 'active' : '' }}">Videos</a>
+<a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">Users</a>
+<a href="{{ route('admin.playlists.index') }}" class="{{ request()->routeIs('admin.playlists.*') ? 'active' : '' }}">Playlists</a>
             <div class="nav-title">Account</div>
             <a href="/">View Website</a>
         </nav>
