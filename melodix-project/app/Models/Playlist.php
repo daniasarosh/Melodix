@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Playlist extends Model
 {
-    protected $fillable = ['user_id', 'name', 'description', 'cover_image', 'is_curated'];
+    protected $fillable = [
+        'user_id',
+        'name',
+        'description',
+        'cover_image',
+        'is_curated',
+    ];
 
     public function user(): BelongsTo
     {
@@ -22,10 +28,11 @@ class Playlist extends Model
 
     protected function casts(): array
     {
-        return ['is_curated' => 'boolean'];
+        return [
+            'is_curated' => 'boolean',
+        ];
     }
 
-    // Playlist::curated()->get()  -> admin playlists (90s, Wedding, Mayon ...)
     public function scopeCurated($query)
     {
         return $query->where('is_curated', true);
@@ -33,6 +40,8 @@ class Playlist extends Model
 
     public function getCoverUrlAttribute(): string
     {
-        return $this->cover_image ? asset('storage/' . $this->cover_image) : asset('images/placeholder-cover.png');
+        return $this->cover_image
+            ? asset('storage/' . $this->cover_image)
+            : asset('images/placeholder-cover.png');
     }
 }

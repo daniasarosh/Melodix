@@ -177,41 +177,6 @@
     padding-top: 2rem;
 }
 
-.app-footer {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: .7rem 1.25rem;
-    padding: 1.25rem 2rem;
-    border-top: 1px solid var(--line);
-    color: var(--latte);
-}
-
-.footer-brand {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-    color: var(--cream);
-    font-size: .75rem;
-    font-weight: 700;
-    letter-spacing: .13em;
-}
-
-.footer-brand img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-}
-
-.app-footer p {
-    margin: 0;
-    font-size: .75rem;
-}
-
-.app-footer small {
-    margin-left: auto;
-    font-size: .7rem;
-}
 
 /* Reusable cards */
 .song-card {
@@ -505,15 +470,6 @@
 
     .page-main {
         padding: 1.25rem 1rem 3rem;
-    }
-
-    .app-footer {
-        padding: 1rem;
-    }
-
-    .app-footer small {
-        margin-left: 0;
-        width: 100%;
     }
 }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Song;
@@ -33,6 +34,7 @@ class HomeController extends Controller
             ->get();
 
         $featuredPlaylists = Playlist::curated()
+            ->latest()
             ->take(6)
             ->get();
 

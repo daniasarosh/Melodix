@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Album extends Model
 {
-    protected $fillable = ['title', 'artist_id', 'release_year', 'cover_image'];
+    protected $fillable = [
+        'title',
+        'artist_id',
+        'release_year',
+        'cover_image',
+    ];
 
     public function artist(): BelongsTo
     {
@@ -22,6 +27,8 @@ class Album extends Model
 
     public function getCoverUrlAttribute(): string
     {
-        return $this->cover_image ? asset('storage/' . $this->cover_image) : asset('images/placeholder-cover.png');
+        return $this->cover_image
+            ? asset('storage/' . $this->cover_image)
+            : asset('images/placeholder-cover.png');
     }
 }
