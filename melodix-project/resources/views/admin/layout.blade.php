@@ -28,6 +28,10 @@
  <a href="{{ route('admin.videos.index') }}" class="{{ request()->routeIs('admin.videos.*')? 'active' : '' }}">Videos</a>
 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">Users</a>
 <a href="{{ route('admin.playlists.index') }}" class="{{ request()->routeIs('admin.playlists.*') ? 'active' : '' }}">Playlists</a>
+<a href="{{ route('admin.reviews.index') }}" class="{{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">Reviews</a>
+
+
+
             <div class="nav-title">Account</div>
             <a href="/">View Website</a>
         </nav>

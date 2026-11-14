@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PlaylistController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SongController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
@@ -30,4 +31,6 @@ Route::middleware(AdminOnly::class)->prefix('admin')->name('admin.')->group(func
     Route::resource('playlists', PlaylistController::class)->except(['show']);
     Route::post('playlists/{playlist}/items', [PlaylistController::class, 'addItem'])->name('playlists.items.add');
     Route::delete('playlists/{playlist}/items', [PlaylistController::class, 'removeItem'])->name('playlists.items.remove');
+
+    Route::resource('reviews', ReviewController::class)->only(['index', 'destroy']);
 });
