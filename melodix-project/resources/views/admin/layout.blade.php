@@ -29,6 +29,7 @@
 <a href="{{ route('admin.users.index') }}" class="{{ request()->routeIs('admin.users.*') ? 'active' : '' }}">Users</a>
 <a href="{{ route('admin.playlists.index') }}" class="{{ request()->routeIs('admin.playlists.*') ? 'active' : '' }}">Playlists</a>
 <a href="{{ route('admin.reviews.index') }}" class="{{ request()->routeIs('admin.reviews.*') ? 'active' : '' }}">Reviews</a>
+<a href="{{ route('admin.settings.edit') }}" class="{{ request()->routeIs('admin.settings.*') ? 'active' : '' }}">Site information</a>
 
 
 

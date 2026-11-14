@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\GenreController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\PlaylistController;
 use App\Http\Controllers\Admin\ReviewController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\SongController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\VideoController;
@@ -33,4 +34,7 @@ Route::middleware(AdminOnly::class)->prefix('admin')->name('admin.')->group(func
     Route::delete('playlists/{playlist}/items', [PlaylistController::class, 'removeItem'])->name('playlists.items.remove');
 
     Route::resource('reviews', ReviewController::class)->only(['index', 'destroy']);
+
+    Route::get('site-settings', [SiteSettingController::class, 'edit'])->name('settings.edit');
+    Route::put('site-settings', [SiteSettingController::class, 'update'])->name('settings.update');
 });
