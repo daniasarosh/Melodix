@@ -8,7 +8,18 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Song extends Model
 {
-    protected $fillable = ['title', 'artist_id', 'album_id', 'genre_id', 'language_id', 'country_id', 'release_year', 'cover_image', 'audio_file', 'description'];
+    protected $fillable = [
+        'title',
+        'artist_id',
+        'album_id',
+        'genre_id',
+        'language_id',
+        'country_id',
+        'release_year',
+        'cover_image',
+        'audio_file',
+        'description',
+    ];
 
     public function artist(): BelongsTo
     {
@@ -55,15 +66,17 @@ class Song extends Model
         return $this->hasMany(PlaylistItem::class);
     }
 
-    // True when added in the last 7 days -> show the flashing NEW badge
     public function getIsNewAttribute(): bool
     {
-        return $this->created_at !== null && $this->created_at->gte(now()->subDays(7));
+        return $this->created_at !== null
+            && $this->created_at->gte(now()->subDays(7));
     }
 
     public function getCoverUrlAttribute(): string
     {
-        return $this->cover_image ? asset('storage/' . $this->cover_image) : asset('images/placeholder-cover.png');
+        return $this->cover_image
+            ? asset('storage/' . $this->cover_image)
+            : asset('images/placeholder-cover.png');
     }
 
     public function getAverageRatingAttribute(): float

@@ -8,7 +8,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Video extends Model
 {
-    protected $fillable = ['title', 'video_type', 'artist_id', 'song_id', 'genre_id', 'language_id', 'country_id', 'release_year', 'thumbnail', 'video_source', 'description'];
+    protected $fillable = [
+        'title',
+        'video_type',
+        'artist_id',
+        'song_id',
+        'genre_id',
+        'language_id',
+        'country_id',
+        'release_year',
+        'thumbnail',
+        'video_source',
+        'description',
+    ];
 
     public function artist(): BelongsTo
     {
@@ -52,12 +64,15 @@ class Video extends Model
 
     public function getIsNewAttribute(): bool
     {
-        return $this->created_at !== null && $this->created_at->gte(now()->subDays(7));
+        return $this->created_at !== null
+            && $this->created_at->gte(now()->subDays(7));
     }
 
     public function getThumbnailUrlAttribute(): string
     {
-        return $this->thumbnail ? asset('storage/' . $this->thumbnail) : asset('images/placeholder-wide.png');
+        return $this->thumbnail
+            ? asset('storage/' . $this->thumbnail)
+            : asset('images/placeholder-wide.png');
     }
 
     public function getAverageRatingAttribute(): float
