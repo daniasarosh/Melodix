@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Artist extends Model
 {
-    protected $fillable = ['name', 'photo', 'bio'];
+    protected $fillable = [
+        'name',
+        'photo',
+        'bio',
+    ];
 
     public function albums(): HasMany
     {
@@ -27,6 +30,8 @@ class Artist extends Model
 
     public function getPhotoUrlAttribute(): string
     {
-        return $this->photo ? asset('storage/' . $this->photo) : asset('images/placeholder-cover.png');
+        return $this->photo
+            ? asset('storage/' . $this->photo)
+            : asset('images/placeholder-cover.png');
     }
 }

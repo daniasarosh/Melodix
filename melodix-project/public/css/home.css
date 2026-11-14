@@ -1,0 +1,504 @@
+
+/* =====================================================
+   MELODIX HOMEPAGE
+   Dedicated homepage styling
+   ===================================================== */
+
+.melodix-home {
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+    color: var(--cream);
+}
+
+/* HERO */
+
+.home-hero {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    align-items: center;
+    gap: 3rem;
+    min-height: 390px;
+    overflow: hidden;
+    padding: 3.5rem;
+    margin-bottom: 4rem;
+    background:
+        radial-gradient(ellipse at 80% 30%, rgba(155,68,82,.25), transparent 55%),
+        linear-gradient(115deg, #341A1D, #1D0D10 75%);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+}
+
+.hero-copy,
+.hero-feature {
+    position: relative;
+    z-index: 2;
+}
+
+.section-eyebrow {
+    display: block;
+    margin-bottom: .8rem;
+    color: var(--gold);
+    font-size: .66rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+}
+
+.hero-copy h1 {
+    margin: 0;
+    color: var(--cream);
+    font-size: clamp(2.1rem, 4vw, 3.7rem);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.045em;
+}
+
+.hero-copy h1 span {
+    color: var(--lime);
+}
+
+.hero-copy p {
+    max-width: 410px;
+    margin: 1.2rem 0 1.6rem;
+    color: var(--latte);
+    font-size: .9rem;
+    line-height: 1.8;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    gap: .8rem;
+    padding: .85rem 1.3rem;
+    color: var(--bg);
+    background: var(--lime);
+    border-radius: 999px;
+    font-size: .8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform .2s ease;
+}
+
+.hero-button:hover {
+    color: var(--bg);
+    transform: translateY(-3px);
+}
+
+.hero-feature {
+    max-width: 330px;
+    width: 100%;
+    justify-self: center;
+}
+
+.hero-art {
+    position: relative;
+    height: 230px;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.4);
+}
+
+.hero-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-art-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(22,10,12,.65), transparent 65%);
+}
+
+.hero-art-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    color: white;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .16em;
+}
+
+.hero-track-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem .2rem;
+}
+
+.hero-track-info span {
+    color: var(--gold);
+    font-size: .58rem;
+    letter-spacing: .13em;
+}
+
+.hero-track-info h3 {
+    margin: .25rem 0;
+    font-size: 1rem;
+}
+
+.hero-track-info p {
+    margin: 0;
+    color: var(--latte);
+    font-size: .75rem;
+}
+
+.hero-track-info > i {
+    color: var(--lime);
+    font-size: 2rem;
+}
+
+.hero-decoration {
+    position: absolute;
+    right: 32%;
+    bottom: -100px;
+    color: rgba(232,220,198,.035);
+    font-size: 25rem;
+    font-weight: 800;
+    pointer-events: none;
+}
+
+/* SECTIONS */
+
+.home-section {
+    margin-bottom: 4rem;
+}
+
+.section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.section-heading .section-eyebrow {
+    margin-bottom: .4rem;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: var(--cream);
+    font-size: clamp(1.45rem, 2vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: -.035em;
+}
+
+.section-heading p {
+    margin: .4rem 0 0;
+    color: var(--latte);
+    font-size: .8rem;
+}
+
+.section-index {
+    color: var(--latte);
+    font-size: .63rem;
+    letter-spacing: .12em;
+    white-space: nowrap;
+}
+
+/* SONGS */
+
+.music-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.music-grid .song-card {
+    min-width: 0;
+    padding: .65rem;
+    background: var(--surface);
+    border-radius: var(--radius);
+    transition: .2s ease;
+}
+
+.music-grid .song-card .cover {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.music-grid .song-card .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.music-grid .song-card .sub {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* VIDEOS */
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.video-grid .thumb {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* ARTISTS */
+
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.3rem;
+}
+
+.artist-grid .artist-card {
+    text-align: center;
+    padding: 1rem .5rem;
+    background: var(--surface);
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+    transition: .2s ease;
+}
+
+.artist-grid .artist-card:hover {
+    background: var(--surface-2);
+    border-color: var(--line);
+    transform: translateY(-4px);
+}
+
+.artist-grid .artist-card img {
+    display: block;
+    width: 112px;
+    height: 112px;
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 0 auto .8rem;
+}
+
+.artist-grid .artist-card .name {
+    font-weight: 600;
+}
+
+/* ALBUMS */
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.album-card {
+    min-width: 0;
+}
+
+.album-art {
+    overflow: hidden;
+    aspect-ratio: 1;
+    margin-bottom: .75rem;
+    border-radius: var(--radius);
+    background: var(--surface);
+}
+
+.album-art img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.album-card:hover img {
+    transform: scale(1.06);
+}
+
+.album-card h3 {
+    overflow: hidden;
+    margin: 0 0 .25rem;
+    color: var(--cream);
+    font-size: .85rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.album-card p,
+.album-card > span {
+    margin: 0;
+    color: var(--latte);
+    font-size: .72rem;
+}
+
+/* PLAYLISTS */
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.playlist-grid .playlist-card {
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.playlist-grid .playlist-card:hover {
+    border-color: var(--burgundy-light);
+    transform: translateY(-3px);
+}
+
+/* GENRES */
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: .8rem;
+}
+
+.genre-tile {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    padding: 1.15rem;
+    background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    transition: .2s ease;
+}
+
+.genre-tile:hover {
+    border-color: var(--burgundy-light);
+    transform: translateY(-3px);
+}
+
+.genre-tile span {
+    color: var(--cream);
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+.genre-tile small {
+    color: var(--latte);
+    font-size: .68rem;
+}
+
+/* REGIONAL BANNER */
+
+.regional-banner {
+    position: relative;
+    overflow: hidden;
+    padding: 3rem;
+    margin: 1rem 0 2rem;
+    background: linear-gradient(110deg, #722F37, #341A1D 75%);
+    border-radius: 20px;
+}
+
+.regional-banner h2 {
+    margin: 0;
+    color: var(--cream);
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1.2;
+}
+
+.regional-banner p {
+    max-width: 450px;
+    margin: 1rem 0 0;
+    color: rgba(232,220,198,.8);
+    font-size: .85rem;
+}
+
+/* EMPTY STATES */
+
+.home-empty {
+    padding: 1.5rem;
+    color: var(--latte);
+    background: var(--surface);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    font-size: .85rem;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1100px) {
+    .music-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .artist-grid,
+    .album-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .melodix-home {
+        padding: 0 1rem 2rem;
+    }
+
+    .home-hero {
+        grid-template-columns: 1fr;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    .hero-feature {
+        max-width: 100%;
+    }
+
+    .hero-art {
+        height: 220px;
+    }
+
+    .video-grid,
+    .playlist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .artist-grid,
+    .album-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .genre-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 520px) {
+    .home-hero {
+        padding: 1.5rem;
+    }
+
+    .music-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .video-grid,
+    .playlist-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .artist-grid,
+    .album-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .section-index {
+        display: none;
+    }
+
+    .regional-banner {
+        padding: 2rem 1.5rem;
+    }
+}
