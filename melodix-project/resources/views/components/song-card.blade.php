@@ -1,7 +1,6 @@
-
 @props(['song'])
 
-<article class="card song-card h-100">
+<article class="card song-card h-100 card-hover-effect">
     <div class="song-card-cover-wrap">
 
         @if ($song->is_new)

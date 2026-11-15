@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="icon" type="image/svg+xml" href="{{ asset('images/melodix-icon.svg') }}">
+    <link rel="alternate icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
     <title>@yield('title', 'Melodix') | Melodix</title>
 
     <meta
@@ -34,11 +37,16 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+    {{-- NEW MOTION STYLES --}}
+    <link rel="stylesheet" href="{{ asset('css/motion.css') }}">
 
     @stack('styles')
 </head>
 
 <body>
+
+    {{-- AMBIENT BACKGROUND CANVAS --}}
+    <canvas id="ambient-canvas"></canvas>
 
     <div class="app">
 
@@ -59,6 +67,10 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    {{-- NEW ANIMATION SCRIPTS --}}
+    <script src="{{ asset('js/ambient.js') }}"></script>
+    <script src="{{ asset('js/waveforms.js') }}"></script>
 
     @stack('scripts')
 
