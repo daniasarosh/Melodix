@@ -1,0 +1,188 @@
+MELODIX TECHNICAL SNAPSHOT
+Generated: 11/13/2026 11:48:31
+
+========== PHP VERSION ==========
+PHP 8.5.12 (cli) (built: Oct 20 2026 04:19:35) (ZTS Visual C++ 2022 x64)
+Copyright (c) The PHP Group
+Built by The PHP Group
+Zend Engine v4.5.12, Copyright (c) Zend Technologies
+    with Zend OPcache v8.5.12, Copyright (c), by Zend Technologies
+
+========== LARAVEL VERSION ==========
+
+Laravel Framework 12.71.0
+
+========== GIT STATUS ==========
+fatal: not a git repository (or any of the parent directories): .git
+
+========== RECENT COMMITS ==========
+fatal: not a git repository (or any of the parent directories): .git
+
+========== REGISTERED ROUTES ==========
+
+
+  GET|HEAD  / ........................................................................ home GÇ¦ HomeController@index
+  GET|HEAD  storage/{path} storage.local GÇ¦ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemServicePrGÇª
+  PUT       storage/{path} storage.local.upload GÇ¦ vendor/laravel/framework/src/Illuminate/Filesystem/FilesystemSeGÇª
+  GET|HEAD  up ....... vendor/laravel/framework/src/Illuminate/Foundation/Configuration/ApplicationBuilder.php:219
+
+                                                                                                Showing [4] routes
+
+
+========== MIGRATION STATUS ==========
+
+
+   Illuminate\Database\QueryException 
+
+  SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it (Connection: mysql, Host: 127.0.0.1, Port: 3306, Database: melodix, SQL: select exists (select 1 from information_schema.tables where table_schema = schema() and table_name = 'migrations' and table_type in ('BASE TABLE', 'SYSTEM VERSIONED')) as `exists`)
+
+  at vendor\laravel\framework\src\Illuminate\Database\Connection.php:838
+    834Gûò             $exceptionType = $this->isUniqueConstraintError($e)
+    835Gûò                 ? UniqueConstraintViolationException::class
+    836Gûò                 : QueryException::class;
+    837Gûò 
+  GP£ 838Gûò             throw new $exceptionType(
+    839Gûò                 $this->getNameWithReadWriteType(),
+    840Gûò                 $query,
+    841Gûò                 $this->prepareBindings($bindings),
+    842Gûò                 $e,
+
+  1   vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:67
+      PDOException::("SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it")
+
+  2   vendor\laravel\framework\src\Illuminate\Database\Connectors\Connector.php:67
+      PDO::connect("mysql:host=127.0.0.1;port=3306;dbname=melodix", "root", Object(SensitiveParameterValue), [])
+
+
+========== COMPOSER REQUIREMENTS ==========
+{
+    "$schema": "https://getcomposer.org/schema.json",
+    "name": "laravel/laravel",
+    "type": "project",
+    "description": "The skeleton application for the Laravel framework.",
+    "keywords": ["laravel", "framework"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^12.0",
+        "laravel/tinker": "^2.10.1"
+    },
+    "require-dev": {
+        "fakerphp/faker": "^1.23",
+        "laravel/pail": "^1.2.2",
+        "laravel/pint": "^1.24",
+        "laravel/sail": "^1.41",
+        "mockery/mockery": "^1.6",
+        "nunomaduro/collision": "^8.6",
+        "phpunit/phpunit": "^11.5.50"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "setup": [
+            "composer install",
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
+            "@php artisan key:generate",
+            "@php artisan migrate --force",
+            "npm install",
+            "npm run build"
+        ],
+        "dev": [
+            "Composer\\Config::disableProcessTimeout",
+            "npx concurrently -c \"#93c5fd,#c4b5fd,#fb7185,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1 --timeout=0\" \"php artisan pail --timeout=0\" \"npm run dev\" --names=server,queue,logs,vite --kill-others"
+        ],
+        "test": [
+            "@php artisan config:clear --ansi",
+            "@php artisan test"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi",
+            "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+            "@php artisan migrate --graceful --ansi"
+        ],
+        "pre-package-uninstall": [
+            "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": []
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
+
+========== FRONTEND REQUIREMENTS ==========
+{
+    "$schema": "https://www.schemastore.org/package.json",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "build": "vite build",
+        "dev": "vite"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.0.0",
+        "axios": "^1.11.0",
+        "concurrently": "^9.0.1",
+        "laravel-vite-plugin": "^2.0.0",
+        "tailwindcss": "^4.0.0",
+        "vite": "^7.0.7"
+    }
+}
+
+========== PUBLIC ASSETS ==========
+
+FullName                                                                                                                                                        Length Extension
+--------                                                                                                                                                        ------ ---------
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\.htaccess                                740 .htaccess
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\favicon.ico                                0 .ico     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\index.php                                543 .php     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\robots.txt                                24 .txt     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\css\footer.css                          6400 .css     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\css\home.css                            9505 .css     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\css\layout.css                          8301 .css     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\css\playlist.css                        4350 .css     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\css\style.css                          10036 .css     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\Melodix logo Branding.png     2446523 .png     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\Melodix logo Branding.svg     1017099 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\melodix-icon-burgundy.svg        8156 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\melodix-icon.svg                 8156 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\melodix-logo-light-darkbg.svg   12288 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\melodix-logo-light.svg          12209 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\melodix-logo.svg                12183 .svg     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\placeholder-cover.png            3656 .png     
+C:\Users\CZ 3\Desktop\DATA\Portfolio work\Webdesigning\Melodix E-project\Melodix E-project\Melodix\melodix-project\public\images\placeholder-wide.png             3994 .png     
+
+
+

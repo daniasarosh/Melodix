@@ -1,0 +1,215 @@
+
+/* ==========================================================
+   MELODIX - CURATED PLAYLISTS
+   Dedicated editorial staggered playlist layout
+   ========================================================== */
+
+.playlist-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 112px;
+    gap: 24px;
+    align-items: start;
+    padding-bottom: 80px;
+}
+
+/* Playlist card */
+
+.playlist-grid .curated-playlist-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    width: 100%;
+    min-width: 0;
+    min-height: 112px;
+    padding: 18px;
+    overflow: hidden;
+
+    background: #211214;
+    border: 1px solid #3a2225;
+    border-radius: 12px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    isolation: isolate;
+    transition: border-color .25s ease, background .25s ease;
+}
+
+/* Remove the old image-card overlay */
+
+.playlist-grid .curated-playlist-card::before {
+    display: none;
+    content: none;
+}
+
+/* Small decorative ring */
+
+.playlist-grid .curated-playlist-card::after {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    width: 6px;
+    height: 6px;
+
+    border: 1px solid #70434a;
+    border-radius: 50%;
+
+    content: "";
+    opacity: .7;
+}
+
+/* Hover */
+
+.playlist-grid .curated-playlist-card:hover {
+    background: #2a171a;
+    border-color: #9B4452;
+}
+
+/* Melodix thumbnail */
+
+.curated-playlist-art {
+    position: relative;
+    display: flex;
+    flex: 0 0 68px;
+    align-items: center;
+    justify-content: center;
+
+    width: 68px;
+    height: 68px;
+
+    background: #2c181b;
+    border: 1px solid #493034;
+    border-radius: 9px;
+}
+
+.curated-playlist-letter {
+    color: #b7a89a;
+    font-family: var(--font);
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Lime indicator */
+
+.curated-playlist-indicator {
+    position: absolute;
+    right: -4px;
+    bottom: -4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 15px;
+    height: 15px;
+
+    background: #a3e635;
+    border: 2px solid #211214;
+    border-radius: 50%;
+}
+
+.curated-playlist-indicator span {
+    width: 4px;
+    height: 4px;
+    background: #26320d;
+    border-radius: 50%;
+}
+
+/* Text area */
+
+.playlist-grid .playlist-card-copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+    gap: 5px;
+}
+
+.playlist-grid .playlist-kicker {
+    color: #9d898b;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    line-height: 1.3;
+}
+
+.playlist-grid .playlist-card-copy strong {
+    overflow: hidden;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.playlist-grid .playlist-card-copy small {
+    overflow: hidden;
+    color: #a89496;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 1.4;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Staggered middle column */
+
+.playlist-grid .curated-playlist-card:nth-child(3n + 2) {
+    transform: translateY(80px);
+}
+
+.playlist-grid .curated-playlist-card:nth-child(3n + 2):hover {
+    transform: translateY(76px);
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+    .playlist-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 112px;
+        padding-bottom: 0;
+    }
+
+    .playlist-grid .curated-playlist-card:nth-child(3n + 2),
+    .playlist-grid .curated-playlist-card:nth-child(3n + 2):hover {
+        transform: none;
+    }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .playlist-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+        gap: 12px;
+    }
+
+    .playlist-grid .curated-playlist-card {
+        min-height: 100px;
+        padding: 14px;
+        gap: 15px;
+    }
+
+    .curated-playlist-art {
+        flex-basis: 62px;
+        width: 62px;
+        height: 62px;
+    }
+
+    .curated-playlist-letter {
+        font-size: 29px;
+    }
+
+    .playlist-grid .curated-playlist-card:nth-child(3n + 2),
+    .playlist-grid .curated-playlist-card:nth-child(3n + 2):hover {
+        transform: none;
+    }
+}
