@@ -149,5 +149,12 @@
     </div>
 </div>
 @endauth
- 
+
+<script>
+    var playlistModal = document.getElementById('createPlaylistModal');
+    if (playlistModal) {
+        document.body.appendChild(playlistModal);
+    }
+</script>
+
 @endsection
