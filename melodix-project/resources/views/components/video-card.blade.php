@@ -1,8 +1,6 @@
-
 @props(['video'])
 
-<article class="video-card h-100">
-
+<a href="{{ route('videos.show', $video->id) }}" class="video-card h-100 card-hover-effect" style="display: block; text-decoration: none; color: inherit;">
     <div class="video-card-media">
 
         @if ($video->is_new)
@@ -39,5 +37,4 @@
 
         <x-star-rating :rating="$video->average_rating" />
     </div>
-
-</article>
+</a>
