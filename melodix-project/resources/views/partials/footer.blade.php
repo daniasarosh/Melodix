@@ -1,168 +1,183 @@
-@php
-    $footerColumns = [
-        [
-            'title' => 'Explore',
-            'links' => [
-                ['label' => 'Browse music', 'route' => 'browse'],
-                ['label' => 'Artists', 'route' => 'artists.index'],
-                ['label' => 'Albums', 'route' => 'albums.index'],
-                ['label' => 'Music videos', 'route' => 'videos.index'],
-                ['label' => 'Playlists', 'route' => 'playlists.index'],
-            ],
-        ],
-        [
-            'title' => 'Melodix',
-            'links' => [
-                ['label' => 'About us', 'route' => 'about'],
-                ['label' => 'Contact', 'route' => 'contact'],
-                ['label' => 'Help center', 'route' => 'help'],
-            ],
-        ],
-        [
-            'title' => 'Legal',
-            'links' => [
-                ['label' => 'Privacy policy', 'route' => 'privacy'],
-                ['label' => 'Terms of use', 'route' => 'terms'],
-            ],
-        ],
-    ];
-
-    $waveBars = [];
-
-    for ($i = 0; $i < 64; $i++) {
-        $height = 6 + abs(sin($i * 0.45) * cos($i * 0.13)) * 50;
-
-        $waveBars[] = [
-            'x' => $i * 8,
-            'y' => round(30 - $height / 2, 2),
-            'height' => round($height, 2),
-            'accent' => $i === 41,
-        ];
-    }
-@endphp
-
 <footer class="app-footer">
-    <div class="footer-inner">
-
-        <div class="footer-top">
-
-            <div class="footer-brand-area">
-
-                <a href="{{ route('home') }}" class="footer-logo" aria-label="Melodix home">
-                    <img
-                        src="{{ asset('images/melodix-icon-burgundy.svg') }}"
-                        alt=""
-                        aria-hidden="true"
-                    >
-                    <span>MELODIX</span>
-                </a>
-
-                <span class="footer-eyebrow">THE SOUND OF DISCOVERY</span>
-
-                <h2 class="footer-statement">
-                    Every sound<br>
-                    has a <span>story.</span>
-                </h2>
-
-                <p class="footer-tagline">
-                    Discover the music, artists and moments
-                    that make every listening experience yours.
-                </p>
-
-            </div>
-
-            <nav class="footer-navigation" aria-label="Footer navigation">
-
-                @foreach ($footerColumns as $column)
-                    <div class="footer-column">
-
-                        <h3>{{ $column['title'] }}</h3>
-
-                        <ul>
-                            @foreach ($column['links'] as $link)
-                                <li>
-                                    @if (Route::has($link['route']))
-                                        <a href="{{ route($link['route']) }}">
-                                            {{ $link['label'] }}
-                                        </a>
-                                    @else
-                                        <span class="footer-pending">
-                                            {{ $link['label'] }}
-                                        </span>
-                                    @endif
-                                </li>
-                            @endforeach
-                        </ul>
-
-                    </div>
-                @endforeach
-
-            </nav>
-
-        </div>
-
-        <div class="footer-wave" aria-hidden="true">
-            <svg viewBox="0 0 512 60" preserveAspectRatio="none">
-                @foreach ($waveBars as $bar)
-                    <rect
-                        x="{{ $bar['x'] }}"
-                        y="{{ $bar['y'] }}"
-                        width="3"
-                        height="{{ $bar['height'] }}"
-                        rx="1.5"
-                        @class(['is-accent' => $bar['accent']])
-                    />
-                @endforeach
-            </svg>
-        </div>
-
-        <div class="footer-wordmark-wrap">
-            <div class="footer-wordmark" aria-hidden="true">
-                Mel<span class="footer-vinyl"></span>dix
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-
-            <p class="footer-copyright">
-                &copy; {{ date('Y') }} Melodix. All rights reserved.
-            </p>
-
-            <div class="footer-bottom-right">
-
-                <div class="footer-socials" aria-label="Social media">
-
-                    <span class="footer-social-icon" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="3" width="18" height="18" rx="5"/>
-                            <circle cx="12" cy="12" r="4"/>
-                            <circle cx="17.5" cy="6.5" r=".7" fill="currentColor" stroke="none"/>
-                        </svg>
-                    </span>
-
-                    <span class="footer-social-icon" aria-label="YouTube">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="2.5" y="5" width="19" height="14" rx="4"/>
-                            <path d="m10 9 5 3-5 3z" fill="currentColor" stroke="none"/>
-                        </svg>
-                    </span>
-
-                    <span class="footer-social-icon" aria-label="X">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 4 19 20M19 4 5 20"/>
-                            <path d="M5 4h4l10 16h-4z" />
-                        </svg>
-                    </span>
-
+    <div class="footer-container">
+        <div class="footer-row">
+            
+            {{-- Brand Column --}}
+            <div class="footer-col footer-brand">
+                <div class="footer-logo mb-3">
+                    <img src="{{ asset('images/melodix-logo-light.svg') }}" alt="Melodix" style="height: 40px; width: auto;">
                 </div>
+                <p class="footer-tagline">The sound of discovery</p>
+                <h3 class="footer-slogan">Every sound<br>has a story.</h3>
+            </div>
 
-                <span class="footer-credit">
-                    Made for the love of music.
-                </span>
+            {{-- Explore Column --}}
+            <div class="footer-col">
+                <h5 class="footer-heading">Explore</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('browse') }}">Browse music</a></li>
+                    <li><a href="{{ route('artists.index') }}">Artists</a></li>
+                    <li><a href="{{ route('albums.index') }}">Albums</a></li>
+                    <li><a href="{{ route('videos.index') }}">Music Videos</a></li>
+                </ul>
+            </div>
 
+            {{-- Company / Support Column --}}
+            <div class="footer-col">
+                <h5 class="footer-heading">Support</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('about') }}">About Us</a></li>
+                    <li><a href="{{ route('contact') }}">Contact Us</a></li>
+                    <li><a href="{{ route('help') }}">Help Center</a></li>
+                    <li>
+                        @auth
+                            <a href="{{ route('profile') }}">My Library</a>
+                        @else
+                            <a href="{{ route('login') }}">My Library</a>
+                        @endauth
+                    </li>
+                </ul>
+            </div>
+
+            {{-- Legal Column --}}
+            <div class="footer-col">
+                <h5 class="footer-heading">Legal</h5>
+                <ul class="footer-links">
+                    <li><a href="{{ route('privacy') }}">Privacy Policy</a></li>
+                    <li><a href="{{ route('terms') }}">Terms of Use</a></li>
+                </ul>
             </div>
 
         </div>
 
+        {{-- Bottom Copyright Area --}}
+        <div class="footer-bottom">
+            <p>&copy; {{ date('Y') }} Melodix by SOUND Group. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="#" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            </div>
+        </div>
     </div>
 </footer>
+
+<style>
+    /* Inline styles to guarantee the footer looks good even if your global CSS is messy */
+    .app-footer {
+        background: transparent;
+        margin-top: 5rem;
+        padding-bottom: 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
+
+    .footer-row {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr;
+        gap: 2rem;
+        padding-bottom: 3rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-brand .footer-logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .footer-tagline {
+        color: #C8FF00; /* Brand Lime */
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-slogan {
+        color: #fff;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin: 0;
+    }
+
+    .footer-heading {
+        color: #fff;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #B7A89A;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+        color: #fff;
+    }
+
+    .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 2rem;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .footer-bottom p {
+        color: #B7A89A;
+        font-size: 0.85rem;
+        margin: 0;
+    }
+
+    .footer-socials {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .footer-socials a {
+        color: #B7A89A;
+        font-size: 1.2rem;
+        transition: color 0.2s;
+    }
+
+    .footer-socials a:hover {
+        color: #fff;
+    }
+
+    @media (max-width: 768px) {
+        .footer-row {
+            grid-template-columns: 1fr 1fr;
+        }
+        .footer-slogan {
+            font-size: 2rem;
+        }
+    }
+</style>
